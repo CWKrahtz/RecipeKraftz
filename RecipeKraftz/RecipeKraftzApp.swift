@@ -11,7 +11,8 @@ import SwiftUI
 struct RecipeKraftzApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            RecipeScreen()
         }
     }
 }
