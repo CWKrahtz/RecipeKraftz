@@ -12,44 +12,82 @@ struct RecipeScreen: View {
     var recipe: Recipe = dummyRecipe
     
     var body: some View {
-        VStack{
-            Text(recipe.name)
-                .font(.title)
-            Text(recipe.author)
-                .font(.title2)
+        ZStack{
+            Color.accentColor
+                .ignoresSafeArea()
             
-            Spacer()
-            
-            ScrollView(.vertical) {
-                Text("Description")
-                Text(recipe.description)
-            }
-            .frame(height: 100)
-            .padding()
-            
-            Spacer()
-            
-            TabView {
+            VStack{
+                Text(recipe.name)
+                    .font(.title)
+                Text(recipe.author)
+                    .font(.title2)
+                
+                //Image Area
+                Spacer()
+                
                 ScrollView(.vertical) {
-                    Text("Ingredients:")
-                        .font(.title3)
-                    Text(recipe.ingredients)
-                        .padding(.vertical)
+                    VStack(alignment: .leading){
+                        Text("Description")
+                            .font(.title3)
+                            .bold()
+                        Text(recipe.description)
+                            .padding(.vertical)
+                    }
+                }
+                .frame(height: 150)
+                .padding()
+                
+                TabView {
+                    ScrollView(.vertical) {
+                        VStack(alignment: .leading){
+                            HStack{
+                                Image("ingredient")
+                                    .resizable()
+                                    .renderingMode(.original)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width:32, height: 32)
+                                
+                                Text("Ingredients:")
+                                    .font(.title3)
+                                    .bold()
+                            }
+                            Text(recipe.ingredients)
+                                .padding(.vertical)
+                        }
+                    }
+                    .padding()
+                    .background(Color("IngreColor"))
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    
+                    ScrollView(.vertical) {
+                        VStack(alignment: .leading){
+                            HStack{
+                                Image("instructions")
+                                    .resizable()
+                                    .renderingMode(.original)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width:32, height: 32)
+                                
+                                Text("Steps:")
+                                    .font(.title2)
+                                    .bold()
+                            }
+                            Text(recipe.steps)
+                                .padding(.vertical)
+                        }
+                    }
+                    .padding()
+                    .background(Color("StepColor"))
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
                 }
                 .padding()
-                ScrollView(.vertical) {
-                    Text("Steps:")
-                        .font(.title3)
-                    Text(recipe.steps)
-                        .padding(.vertical)
-                }
-                .padding()
+                .frame(height: 250)
+                .cornerRadius(15)
+                .tabViewStyle(.page)// This style makes the content a carousel
+                
             }
-            .frame(height: 150)
-            .background(.gray)
-            .padding()
-            .cornerRadius(15)
-            .tabViewStyle(.page)// This style makes the content a carousel
         }
     }
 }

@@ -12,7 +12,8 @@ struct RecipeKraftzApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            RecipeScreen()
+//            RecipeScreen()
+            SplashScreenView()
         }
     }
 }
