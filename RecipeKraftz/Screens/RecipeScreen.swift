@@ -19,11 +19,18 @@ struct RecipeScreen: View {
             VStack{
                 Text(recipe.name)
                     .font(.title)
+                
+                Image(recipe.img)
+                    .resizable()
+                    .renderingMode(.original)
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(20)
+                    .frame(width:250, height: 250)
+                
                 Text(recipe.author)
                     .font(.title2)
                 
                 //Image Area
-                Spacer()
                 
                 ScrollView(.vertical) {
                     VStack(alignment: .leading){
@@ -83,7 +90,7 @@ struct RecipeScreen: View {
                     .cornerRadius(10)
                 }
                 .padding()
-                .frame(height: 250)
+                .frame(height: 225)
                 .cornerRadius(15)
                 .tabViewStyle(.page)// This style makes the content a carousel
                 

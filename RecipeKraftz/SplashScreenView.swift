@@ -14,7 +14,8 @@ struct SplashScreenView: View {
     
     var body: some View {
         if isActive{
-            ContentView()
+//            ContentView()
+            ListScreen()
         } else {
             ZStack{
                 Color.accentColor
