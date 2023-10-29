@@ -8,10 +8,25 @@
 import SwiftUI
 
 struct ListScreen: View {
+    @State var showSettings = false
+    @State var searchText = ""//state var for searching our city list
+    
+    //function that update my list of cities to displays
+    //1. Create new var called searchResult that will essentially contain my citydata
+    //2. Set var equal to a function that contain an if statement
+    var searchResult: [Recipe] {
+        //if searchText is null. Show all data
+        if (searchText.isEmpty){
+            return IngredientsData
+        }else{//return all the cities that contains the text of my searc
+            return IngredientsData.filter{$0.name.contains(searchText)}
+        }
+    }
+    
     var body: some View {
         NavigationView{
             List {
-                ForEach(IngredientsData) { recipe in
+                ForEach(searchResult) { recipe in
                     
                     NavigationLink(destination: RecipeScreen(recipe: recipe)){// Passing city as a param to the screen
                         Image(recipe.img)
@@ -33,10 +48,19 @@ struct ListScreen: View {
                 }// End of For
             }// End of List
             .scrollContentBackground(.hidden)
-            .background(Color.accentColor)
-            
-                .navigationTitle("All Recipes")//Inside navigationView
-                .navigationBarTitleDisplayMode(.large)
+            .background(Color("backColor"))
+            .navigationTitle("All Recipes")//Inside navigationView
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing: Button(action: {//NavBar Item
+                //TODO: open setting
+                showSettings.toggle()//toggle from true to false
+            }){
+                Image(systemName: "gearshape")
+            })
+        }
+        .searchable(text: $searchText)
+        .sheet(isPresented: $showSettings){
+            SettingsScreen()
         }
     }
 }

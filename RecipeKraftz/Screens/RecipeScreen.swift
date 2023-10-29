@@ -13,12 +13,13 @@ struct RecipeScreen: View {
     
     var body: some View {
         ZStack{
-            Color.accentColor
+            Color("backColor")
                 .ignoresSafeArea()
             
             VStack{
                 Text(recipe.name)
                     .font(.title)
+                    .padding(.top)
                 
                 Image(recipe.img)
                     .resizable()

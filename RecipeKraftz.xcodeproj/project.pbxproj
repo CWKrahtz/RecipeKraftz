@@ -16,6 +16,7 @@
 		3F33AA262ADFC85900B1F875 /* IngredientsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F33AA252ADFC85900B1F875 /* IngredientsData.swift */; };
 		3F33AA282ADFCD1500B1F875 /* ListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F33AA272ADFCD1400B1F875 /* ListScreen.swift */; };
 		3F66E63C2ADD6520005B68E7 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66E63B2ADD6520005B68E7 /* SplashScreenView.swift */; };
+		3F7E6C552AEE4CF30043BB40 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E6C542AEE4CF30043BB40 /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		3F33AA252ADFC85900B1F875 /* IngredientsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsData.swift; sourceTree = "<group>"; };
 		3F33AA272ADFCD1400B1F875 /* ListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreen.swift; sourceTree = "<group>"; };
 		3F66E63B2ADD6520005B68E7 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		3F7E6C542AEE4CF30043BB40 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				3F0DEF4F2ADBF98300F4F188 /* RecipeScreen.swift */,
 				3F33AA272ADFCD1400B1F875 /* ListScreen.swift */,
+				3F7E6C542AEE4CF30043BB40 /* SettingsScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F7E6C552AEE4CF30043BB40 /* SettingsScreen.swift in Sources */,
 				3F0DEF4E2ADBF61F00F4F188 /* Recipe.swift in Sources */,
 				3F33AA282ADFCD1500B1F875 /* ListScreen.swift in Sources */,
 				3F0DEF502ADBF98300F4F188 /* RecipeScreen.swift in Sources */,
