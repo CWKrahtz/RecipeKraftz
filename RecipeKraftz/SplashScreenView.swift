@@ -18,7 +18,7 @@ struct SplashScreenView: View {
             ListScreen()
         } else {
             ZStack{
-                Color.accentColor
+                Color("backColor")
                     .ignoresSafeArea()
                 VStack{
                     VStack{
