@@ -9,11 +9,18 @@ import SwiftUI
 
 @main
 struct RecipeKraftzApp: App {
+    
+    @AppStorage("isOnboarded") var isOnboarded: Bool = false
+    
     var body: some Scene {
         WindowGroup {
 //            ContentView()
 //            RecipeScreen()
-            SplashScreenView()
+            if(isOnboarded){
+                SplashScreenView() //If the user have seen the onboarding before
+            }else{
+                OnboardingScreen()//If the user has not seen the onboarding before.
+            }
         }
     }
 }

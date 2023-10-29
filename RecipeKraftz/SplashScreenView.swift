@@ -15,8 +15,8 @@ struct SplashScreenView: View {
     var body: some View {
         if isActive{
 //            ContentView()
-//            ListScreen()
-            OnboardingScreen()
+            ListScreen()
+//            OnboardingScreen()
         } else {
             ZStack{
                 Color("backColor")
