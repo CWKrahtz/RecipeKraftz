@@ -15,7 +15,8 @@ struct SplashScreenView: View {
     var body: some View {
         if isActive{
 //            ContentView()
-            ListScreen()
+//            ListScreen()
+            OnboardingScreen()
         } else {
             ZStack{
                 Color("backColor")
@@ -41,7 +42,7 @@ struct SplashScreenView: View {
                     }
                 }
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline:.now() + 2.0){
+                    DispatchQueue.main.asyncAfter(deadline:.now() + 1.5){
                         withAnimation {
                             self.isActive = true
                         }
