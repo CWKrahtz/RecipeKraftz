@@ -11,6 +11,9 @@ struct SettingsScreen: View {
     //@Environment var = define the environment/context of our application
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme //access device settings to toggle light/dark mode... NOT APP SPECIFICLLY - IT IS BASED ON THE IPHONE
+    
+    @AppStorage("displayMode") var displayMode = "primary"
+    
     var body: some View {
         VStack(spacing: 20){
             //Header Section
@@ -71,9 +74,18 @@ struct SettingsScreen: View {
                 .bold()
             }
         
-//            if (colorScheme == .light){//If want to show something in dark mode
-//                Text("Color scheme is set to \(colorScheme == .dark ? "Dark" : "Light")")
-//            }
+            if (displayMode == "primary"){//If want to show something in dark mode
+                Text("Color scheme is set to \(colorScheme == .dark ? "Dark" : "Light")")
+            }
+            GroupBox{
+                Text("Display Mode")
+                
+                Picker("Mode", selection: $displayMode){
+                    Text("Primary").tag("primary")
+                    Text("Secondary").tag("secondary")
+                }
+                .pickerStyle(.segmented)
+            }
         
             Spacer()
         }//END - Outer VStack

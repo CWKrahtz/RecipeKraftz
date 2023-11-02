@@ -12,11 +12,20 @@ struct SplashScreenView: View {
     @State private var size = 0.8
     @State private var opasity = 0.5
     
+    @AppStorage("isOnboarded") var isOnboarded: Bool = false
+    
     var body: some View {
         if isActive{
 //            ContentView()
-            ListScreen()
+//            ListScreen()
 //            OnboardingScreen()
+            if(isOnboarded){
+//                SplashScreenView() //If the user have seen the onboarding before
+                ListScreen()
+            }else{
+                OnboardingScreen()//If the user has not seen the onboarding before.
+//                SplashScreenView()
+            }
         } else {
             ZStack{
                 Color("backColor")

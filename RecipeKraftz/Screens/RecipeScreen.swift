@@ -9,11 +9,13 @@ import SwiftUI
 
 struct RecipeScreen: View {
     
+    @AppStorage("displayMode") var displayMode = "primary"
+    
     var recipe: Recipe = dummyRecipe
     
     var body: some View {
         ZStack{
-            Color("backColor")
+            Color(displayMode == "primary" ? "backColor" : "backColorDark" )
                 .ignoresSafeArea()
             
             VStack{

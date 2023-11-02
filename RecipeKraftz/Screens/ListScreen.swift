@@ -11,6 +11,8 @@ struct ListScreen: View {
     @State var showSettings = false
     @State var searchText = ""//state var for searching our city list
     
+    @AppStorage("displayMode") var displayMode = "primary"
+    
     //function that update my list of cities to displays
     //1. Create new var called searchResult that will essentially contain my citydata
     //2. Set var equal to a function that contain an if statement
@@ -48,7 +50,7 @@ struct ListScreen: View {
                 }// End of For
             }// End of List
             .scrollContentBackground(.hidden)
-            .background(Color("backColor"))
+            .background(displayMode == "primary" ? Color("backColor") : Color("backColorDark"))
             .navigationTitle("All Recipes")//Inside navigationView
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {//NavBar Item
