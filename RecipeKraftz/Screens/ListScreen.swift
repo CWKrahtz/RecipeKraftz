@@ -29,6 +29,7 @@ struct ListScreen: View {
     var body: some View {
         NavigationView{
             List {
+                Text("Total Recipies: \(recipeCount)")
                 ForEach(searchResult) { recipe in
                     
                     NavigationLink(destination: RecipeScreen(recipe: recipe)){// Passing city as a param to the screen
@@ -64,9 +65,8 @@ struct ListScreen: View {
         .searchable(text: $searchText)
         .sheet(isPresented: $showSettings){
             SettingsScreen()
-            
-            Text("Total Recipies: \(recipeCount)")
         }
+        
     }
 }
 
