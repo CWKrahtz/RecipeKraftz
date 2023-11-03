@@ -12,6 +12,7 @@ struct ListScreen: View {
     @State var searchText = ""//state var for searching our city list
     
     @AppStorage("displayMode") var displayMode = "primary"
+    @State var recipeCount = IngredientsData.count
     
     //function that update my list of cities to displays
     //1. Create new var called searchResult that will essentially contain my citydata
@@ -63,6 +64,8 @@ struct ListScreen: View {
         .searchable(text: $searchText)
         .sheet(isPresented: $showSettings){
             SettingsScreen()
+            
+            Text("Total Recipies: \(recipeCount)")
         }
     }
 }
